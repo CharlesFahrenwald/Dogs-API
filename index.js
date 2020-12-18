@@ -1,0 +1,32 @@
+function getDogImage() {
+fetch('https://dog.ceo/api/breeds/image/random/3')
+	.then(response => response.json())
+	.then(responseJson => displayResults(responseJson))
+	.catch(error => alert('Something went wrong. Please try again later.'
+	));
+}
+
+
+function displayResults(responseJson) {
+console.log(responseJson);
+$('.results-img').replaceWith(
+`<img src={"$(responseJson.message)"} class="results-img">
+)
+$('.results').removeClass('hidden');
+}
+
+
+
+function watchForm(){
+$('form').submit(event => {
+event.preventDefault();
+getDogImage();
+});
+}
+
+
+
+$function() {
+console.log('Loaded Please submit');
+watchForm();
+});
