@@ -1,25 +1,29 @@
-<!DOCTYPEHTML>
+<!DOCTYPE html>
 <hmtl>
-<lang=en>
+<lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Dog API Project</title>
-	<link rel="shortcut icon" href="">
-	<link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dog API Project</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="index.css">
 </head>	
 <body>
-	<div class="container">
-		<h1>Dogs all around</h1>
-		<form>
-		    <input type="submit" value="Here are some dogs">		
-		</form>
-		<section class="results hidden">
-			<h2>Look at this dog!</h2>
-			<img class="results-img" alt="placeholder">		
-		</section>
-	</div>
+   <section class="container">		
+	<h1 class= "display-1">Dogs all around</h1>
+	<div id="input"</div>
+		<form id="form-num">
+		  <div class="form-group">
+		     <h3> Would you like 3 picture of dogs?</h3>
+	   	     <input type="text" id="dog-num" class="form control placeholder="Default photo # is 3" required>		
+        	</div>
+		<div class="button" 
+			<input type="submit" id="rec" class="btn" vaule="Heres a dog picture">
+		</div>	
+	<div class="results-img"></div>							     
+		</form>	
+    </section>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script src= "index.js"></script>
 </body>
