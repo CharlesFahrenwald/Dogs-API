@@ -1,24 +1,19 @@
 'use strict';
 
 
-function getDogImage() {
-fetch('https://dog.ceo/api/breeds/image/random')
+function getDogImage(numInput){
+if(numInput < 3) {
+fetch('https://dog.ceo/api/breeds/image/random/3')
 	.then(response => response.json())
-	.then(responseJson => displayResults(responseJson))
-	.catch(error => alert('Something went wrong. Please try again later.'
-	));
+	.then(responseJson => console.log(responseJson));
+}else if (numInput > 50) {
+	return alert("Please choose a vaild number i.e 1-50");
+}else{
+	fetch(`https://dog.ceo/api/breeds/image/random/${numInput}`)
+	.then(response => response.json())
+	.then(responseJson => console.log(responseJson));
 }
-
-
-function displayResults(responseJson) {
-console.log(responseJson);
-$('.results-img').replaceWith(
-`<img src={"$(responseJson.message)"} class="results-img">
 )
-$('.results').removeClass('hidden');
-}
-
-
 
 function watchForm(){
 $('form').submit(event => {
