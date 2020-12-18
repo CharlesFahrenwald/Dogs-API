@@ -13,10 +13,10 @@ fetch('https://dog.ceo/api/breeds/image/random/3')
 	.then(response => response.json())
 	.then(responseJson => console.log(responseJson));
 }
-)
+}
 
 function watchForm(){
-$('#form-num').submit(event => {
+$('#dog-num-form').submit(event => {
 event.preventDefault();
 let userNumInput = $('#dog-num').val();
 getDogImage(userNumInput);
