@@ -16,9 +16,9 @@ fetch('https://dog.ceo/api/breeds/image/random/3')
 )
 
 function watchForm(){
-$('form').submit(event => {
+$('#form-num').submit(event => {
 event.preventDefault();
-getDogImage();
+let userNumInput = $('#
 });
 }
 
