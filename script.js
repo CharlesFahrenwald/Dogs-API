@@ -1,31 +1,47 @@
 'use strict';
 
-
-function getDogImage(numInput){
-if(numInput < 3) {
-fetch('https://dog.ceo/api/breeds/image/random/3')
-	.then(response => response.json())
-	.then(responseJson => console.log(responseJson));
-}else if (numInput > 50) {
-	return alert("Please choose a vaild number i.e 1-50");
-}else{
-	fetch(`https://dog.ceo/api/breeds/image/random/${numInput}`)
-	.then(response => response.json())
-	.then(responseJson => console.log(responseJson));
+function getDogImage(numInput) {
+  if (numInput < 3) {
+  fetch('https://dog.ceo/api/breeds/image/random/3')
+    .then(response => response.json())
+    .then(responseJson => displayDogs(responseJson))
+     .catch(error => ("Please Try Again"));
+  }  else if (numInput > 50){ 
+    return alert ("Please choose a vaild number");
+  } else {
+    fetch(`https://dog.ceo/api/breeds/image/random/${numInput}`)
+      .then(response => response.json())
+      .then (responseJson => displayDogs(responseJson))
+      .catch(error => alert("Please Try Again"));
+  }
 }
+
+function buttonReturn(){
+  $("#button").on(click)
+  fetch('https://dog.ceo/api/breeds/image/random/3')
+  .then(response => response.json())
+  .then (responseJson => displayDogs(responseJson));
 }
 
 function watchForm(){
-$('#dog-num-form').submit(event => {
-event.preventDefault();
-let userNumInput = $("#num-dog").val();
-getDogImage(userNumInput);
-});
+  $("#dog-num-form").submit(event => {
+    event.preventDefault();
+    let userInput = $("#num-dog").val();
+    getDogImage(userInput);
+  });
 }
 
-
+function displayDogs(responseJson) {
+  console.log(responseJson);
+  $(".results").html("");
+  responseJson.message.forEach(renderedImg => {
+    $(".results").append(`<img src="${renderedImg}" class = "results">`);
+  });
+  $(".results").removeClass("hidden");
+}
 
 $(function() {
-console.log('Loaded Please submit');
-watchForm();
+  console.log('App loaded! Waiting for submit!');
+  watchForm();
 });
+
