@@ -1,7 +1,7 @@
 'use strict';
 
 function getDogImage(numInput) {
-  if (numInput < 3) {
+  if (numInput <= 3) {
   fetch('https://dog.ceo/api/breeds/image/random/3')
     .then(response => response.json())
     .then(responseJson => displayDogs(responseJson))
@@ -33,9 +33,12 @@ function watchForm(){
 
 function displayDogs(responseJson) {
   console.log(responseJson);
-  $(".results").html("");
+  //$(".results").html("");
+  $("#resultFrame").html("");
   responseJson.message.forEach(renderedImg => {
-    $(".results").append(`<img src="${renderedImg}" class = "results">`);
+    //$(".results").append(`<img src="${renderedImg}" class = "results">`);
+    $("#resultFrame").append(`<img src="${renderedImg}" class = "resultItem">`);
+
   });
   $(".results").removeClass("hidden");
 }
@@ -44,4 +47,3 @@ $(function() {
   console.log('App loaded! Waiting for submit!');
   watchForm();
 });
-
