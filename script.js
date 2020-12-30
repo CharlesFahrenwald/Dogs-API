@@ -1,7 +1,7 @@
 'use strict';
 
 function getDogImage(numInput) {
-  if (numInput <= 3) {
+  if (numInput >= 1) {
   fetch('https://dog.ceo/api/breeds/image/random/3')
     .then(response => response.json())
     .then(responseJson => displayDogs(responseJson))
@@ -16,12 +16,12 @@ function getDogImage(numInput) {
   }
 }
 
-function buttonReturn(){
+/*function buttonReturn(){
   $("#button").on(click)
   fetch('https://dog.ceo/api/breeds/image/random/3')
   .then(response => response.json())
   .then (responseJson => displayDogs(responseJson));
-}
+}*/
 
 function watchForm(){
   $("#dog-num-form").submit(event => {
