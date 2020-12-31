@@ -1,11 +1,14 @@
 'use strict';
 
 function getDogImage(numInput) {
+  if (numInput == 0){
+    numInput = 3
+  }
   if (numInput <= 1) {
-  fetch('https://dog.ceo/api/breeds/image/random')
-    .then(response => response.json())
-    .then(responseJson => displayDogs(responseJson))
-     .catch(error => ("Please Try Again"));
+    fetch('https://dog.ceo/api/breeds/image/random')
+      .then(response => response.json())
+      .then(responseJson => displayDogs(responseJson))
+      .catch(error => ("Please Try Again"));
   }  else if (numInput > 50){ 
     return alert ("Please choose a vaild number");
   } else {
@@ -36,6 +39,9 @@ function displayDogs(responseJson) {
   console.log(responseJson);
   //$(".results").html("");
   $("#resultFrame").html("");
+  if (!responseJson.message.forEach){
+    responseJson.message = [responseJson.message]
+  }
   responseJson.message.forEach(renderedImg => {
     //$(".results").append(`<img src="${renderedImg}" class = "results">`);
     $("#resultFrame").append(`<img src="${renderedImg}" class = "resultItem">`);
@@ -48,4 +54,3 @@ $(function() {
   console.log('App loaded! Waiting for submit!');
   watchForm();
 });
-
