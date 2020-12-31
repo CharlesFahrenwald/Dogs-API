@@ -1,8 +1,8 @@
 'use strict';
 
 function getDogImage(numInput) {
-  if (numInput >= 1) {
-  fetch('https://dog.ceo/api/breeds/image/random/3')
+  if (numInput <= 1) {
+  fetch('https://dog.ceo/api/breeds/image/random')
     .then(response => response.json())
     .then(responseJson => displayDogs(responseJson))
      .catch(error => ("Please Try Again"));
@@ -22,6 +22,7 @@ function getDogImage(numInput) {
   .then(response => response.json())
   .then (responseJson => displayDogs(responseJson));
 }*/
+
 
 function watchForm(){
   $("#dog-num-form").submit(event => {
@@ -47,3 +48,4 @@ $(function() {
   console.log('App loaded! Waiting for submit!');
   watchForm();
 });
+
